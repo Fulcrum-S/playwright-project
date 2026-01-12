@@ -78,7 +78,7 @@ Coverage analysis helps identify gaps and improve overall test quality.
 
 ## 📂 Project Structure
 
-📦 Tutorial-ninja-playwright-project  
+📦 playwright-project  
  ┣ 📂 tests               → Test specifications  
  ┣ 📂 pages               → Page Object classes  
  ┣ 📜 config.ini          → Environment & application configuration  
