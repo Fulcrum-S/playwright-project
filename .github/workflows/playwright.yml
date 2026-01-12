@@ -1,0 +1,79 @@
+name: Tutorial Ninja Playwright 
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  test:
+    name: Run Pytest with Playwright & Allure
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    container:
+      image: mcr.microsoft.com/playwright/python:v1.55.0
+
+    steps:
+      # 1. Checkout repo
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. Setup Python
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # 3. Install dependencies
+      - name: Install dependencies
+        shell: bash
+        run: |
+          python -m venv .venv
+          source .venv/bin/activate
+          pip install --upgrade pip
+          pip install -r requirements.txt
+          playwright install chromium
+
+      # 4. Ensure Allure directory exists
+      - name: Create Allure results directory
+        run: mkdir -p allure-results
+
+      # 5. Run tests
+      - name: Run pytest
+        shell: bash
+        run: |
+          source .venv/bin/activate
+          xvfb-run pytest --alluredir=allure-results
+
+      # 6. Add Allure metadata
+      - name: Add Allure metadata
+        if: always()
+        run: |
+          cd allure-results
+          {
+            echo BUILD_URL=${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+            echo GIT_BRANCH=${{ github.head_ref || github.ref_name }}
+            echo GIT_COMMIT_ID=${{ github.sha }}
+            echo GIT_COMMIT_MESSAGE="$(git show -s --format=%s HEAD)"
+            echo GIT_COMMIT_AUTHOR="$(git show -s --format='%ae' HEAD)"
+            echo GIT_COMMIT_TIME="$(git show -s --format=%ci HEAD)"
+          } >> environment.properties
+
+      # 7. Generate Allure report
+      - name: Generate Allure report
+        if: always()
+        uses: simple-elf/allure-report-action@master
+        with:
+          allure_results: allure-results
+          allure_report: allure-report
+          allure_history: allure-history
+
+      # 8. Publish report to GitHub Pages
+      - name: Publish Allure report
+        if: always()
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: allure-history
