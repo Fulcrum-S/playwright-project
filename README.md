@@ -79,8 +79,8 @@ Coverage analysis helps identify gaps and improve overall test quality.
 ## 📂 Project Structure
 
 📦 playwright-project  
- ┣ 📂 tests               → Test specifications  
- ┣ 📂 pages               → Page Object classes  
+ ┣ 📂 Pages               → Page object clasess   
+ ┣ 📂 Tests               → Test specifications  
  ┣ 📜 config.ini          → Environment & application configuration  
  ┣ 📜 pytest.ini          → Pytest configuration  
  ┣ 📜 requirements.txt   → Python dependencies  
