@@ -50,7 +50,7 @@ The framework is designed to be maintainable, scalable, and suitable for real-wo
    git clone https://github.com/Fulcrum-S/playwright-project.git
 
 2. Navigate to the project directory  
-   cd Tutorial-ninja-playwright-project
+   cd playwright-project
 
 3. Install dependencies  
    pip install -r requirements.txt
