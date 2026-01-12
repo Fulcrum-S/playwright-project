@@ -66,7 +66,7 @@ pytest --alluredir=allure-results
 2. Generate the Allure report:  
 allure generate allure-results -o allure-report --clean
 
-Allure Report URL:  
+Allure Report URL: https://fulcrum-s.github.io/playwright-project/
 
 
 
