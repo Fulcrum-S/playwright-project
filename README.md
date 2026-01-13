@@ -1,6 +1,6 @@
 # 🎯 Tutorial Ninja Playwright Project
 
-[![Build Status](https://img.shields.io/github/actions/workflow/status/Fulcrum-S/playwright-project/playwright.yml?style=for-the-badge)](https://github.com/Fulcrum-S/Tutorial-ninja-playwright-project/actions)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/Fulcrum-S/playwright-project/playwright.yml?style=for-the-badge)](https://github.com/Fulcrum-S/playwright-project/actions)
 [![Test Coverage](https://img.shields.io/badge/Test-Coverage-success?style=for-the-badge)](#test-coverage)
 [![Allure Report](https://img.shields.io/badge/Allure-Report-blueviolet?style=for-the-badge)](https://fulcrum-s.github.io/playwright-project/)
 
