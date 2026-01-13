@@ -9,6 +9,9 @@ class Cart(BasePage):
 
     _cart= "#cart-total"
     _click_prod = ".fa.fa-shopping-cart"
+    _txt_center = ".text-center"
+    _remove = ".btn.btn-danger.btn-xs"
+    _checkout = ".fa.fa-share"
 
     def add_iphone_to_cart(self):
         self.click(self._click_prod)
@@ -17,10 +20,11 @@ class Cart(BasePage):
         self.page.click(self._cart)
 
     def get_cart_message(self):
-        return self.page.inner_text(".text-center")
+        return self.page.inner_text(self._txt_center)
 
     def remove_product(self):
-        self.click(".btn.btn-danger.btn-xs")
+        self.click(self._remove)
 
     def checkout(self):
-        self.click(".fa.fa-share")
+
+        self.click(self._checkout)
