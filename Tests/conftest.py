@@ -29,6 +29,12 @@ def setup_page_class(request, browser):
     request.cls.page = browser.new_page()
     request.cls.page.goto("https://tutorialsninja.com/demo/")
     request.cls.register_page = Register(request.cls.page)
+    request.cls.home_page = Homepage(request.cls.page)
+    request.cls.login_page = Login(request.cls.page)
+    request.cls.products_page = Products(request.cls.page)
+    request.cls.cart_page = Cart(request.cls.page)
+
+
     yield
     request.cls.page.close()
     browser.close()
