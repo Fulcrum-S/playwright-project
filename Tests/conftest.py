@@ -45,7 +45,7 @@ def setup_page_class(request, browser):
 @pytest.fixture(scope="function")
   #navigate to base URL
 def goto(page):
-    page.goto("https://tutorialsninja.com/demo/index.php?route=common/home")
+    page.goto("https://tutorialsninja.com/demo/")
     yield
 
 
