@@ -26,7 +26,7 @@ class TestLogin(BaseTest):
     def test_invalid_login(self,email,password):
         with allure.step("open login page"):
              self.login_page.open_login()
-        with allure.step(f"enter invalid credentials:{email},{password}"):
+        with allure.step("enter invalid credentials"):
             self.login_page.login(email,password)
         with allure.step("verify error message"):
             assert "No match" in self.login_page.page.text_content(".alert-danger")
@@ -39,7 +39,7 @@ class TestLogin(BaseTest):
     def test_empty_login(self,email,password):
         with allure.step("Open login page"):
             self.login_page.open_login()
-        with allure.step(f"Submit empty login credentials:{email},{password}"):
+        with allure.step("Submit empty login credentials"):
             self.login_page.login(email,password)
         with allure.step("verify error message"):
             assert "No match" in self.login_page.page.text_content(".alert.alert-danger.alert-dismissible")
