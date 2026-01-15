@@ -8,13 +8,9 @@ class Cart(BasePage):
         super().__init__(page)
 
     _cart= "#cart-total"
-    _click_prod = ".fa.fa-shopping-cart"
     _txt_center = ".text-center"
     _remove = ".btn.btn-danger.btn-xs"
     _checkout = ".fa.fa-share"
-
-    def add_iphone_to_cart(self):
-        self.click(self._click_prod)
 
     def open_cart(self):
         self.page.click(self._cart)
@@ -28,3 +24,4 @@ class Cart(BasePage):
     def checkout(self):
 
         self.click(self._checkout)
+
