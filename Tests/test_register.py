@@ -27,7 +27,7 @@ class TestRegister(BaseTest):
     def test_register_empty_credentials(self,name,last_name,phone,email,password,confirm):
         with allure.step("open register page"):
             self.register_page.open_register()
-        with allure.step(f"enter empty credentials:{name},{last_name},{phone},{email},{password},{confirm}"):
+        with allure.step("enter empty credentials"):
             self.register_page.register(name, last_name, phone, email, password, confirm)
         with allure.step("verify error message"):
             assert self.register_page.is_visible(".alert-danger")
