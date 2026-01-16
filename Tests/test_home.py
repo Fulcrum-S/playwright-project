@@ -36,7 +36,7 @@ class TestHome(BaseTest):
             assert self.home_page.is_visible("[name='search']")
 
     @allure.title("Verify My Account menu")
-    @allure.description("Verify My Account menu opens and shows Login option")
+    @allure.description("Verify My Account menu shows Login option")
     @allure.severity(allure.severity_level.MINOR)
 
     def test_my_account_menu_visible(self):
