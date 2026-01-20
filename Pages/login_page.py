@@ -14,7 +14,6 @@ class Login(BasePage):
     _click = "#content div input:nth-child(3)"
 
     def open_login(self):
-
         self.click(self._account)
         self.click(self._click_it)
 
@@ -22,5 +21,6 @@ class Login(BasePage):
         self.fill(self._email,email)
         self.fill(self._password,password)
         self.click(self._click)
+
 
 
